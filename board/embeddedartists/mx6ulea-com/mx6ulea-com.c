@@ -795,14 +795,23 @@ static int configure_gpio_expander(void)
 
         i2c_set_bus_num(1);
         if (!i2c_probe(PCA6416_ADDR)) {
+<<<<<<< HEAD
+                val = 0x00;  /* Register 2: 3.3V VDDIO = 0x40;  1.8V VDDIO = 0x00 for SDIO;  */ 
+=======
+>>>>>>> 32fd73c91e5e541bca85bbd69c93d1268e581981
                 if (i2c_write(PCA6416_ADDR, 0x02, 1, &val, 1)) {
                         printf("Failed to configure PCA6416 GPIO Expander!\n");
                         return -1;
                 }
+<<<<<<< HEAD
+                val = 0x40;  /* Register 3: 3.6V VBAT = 0x40;  3.3V VBAT = 0x00;  */
+=======
+>>>>>>> 32fd73c91e5e541bca85bbd69c93d1268e581981
                 if (i2c_write(PCA6416_ADDR, 0x03, 1, &val, 1)) {
                         printf("Failed to configure PCA6416 GPIO Expander!\n");
                         return -1;
                 }
+		val = 0x00; 
                 if (i2c_write(PCA6416_ADDR, 0x06, 1, &val, 1)) {
                         printf("Failed to configure PCA6416 GPIO Expander!\n");
                         return -1;
